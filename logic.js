@@ -1,33 +1,58 @@
 ///PHASE ONE OF ROCK RAPER SCISSORS 15NOV
 
 
-game();
+
 
 // initializing the game with a loop of 5 rounds 
+
+
+
+
+
+
 
 
 function game() {
 
   for (let i = 0; i < 5; i++) {
 
-
+    
+    let validAnswer = false;
     const playerSelection = getPlayerSelection();
     const computerChoice = getComputerChoice();
-  
-    playRound(playerSelection, computerChoice);
+     
+
+
+    // player selection must match of the below options once converted to caps, if else statement to restart if not
+
+    if (playerSelection === "ROCK" || playerSelection === "PAPER" || playerSelection === "SCISSORS") {
+
+      playRound(playerSelection, computerChoice);
+    } else {
+       getPlayerSelection();
+      
+    } }
+    
+   
+    
+
+    
     
   }
 
-}
 
 
 
 
-function getPlayerSelection(playerSelection) {
-  return playerSelection = prompt("What's your choice?");
- // add more code for case sensitive etc 
 
-}
+function getPlayerSelection(playerSelection, validAnswer) {
+  playerSelection = prompt("What's your choice?");
+  return playerSelection.toUpperCase();}
+
+ // now turns player choice into caps to stop bug with if statement
+
+
+
 
 
 function getComputerChoice(computerChoice = "") {
@@ -59,6 +84,7 @@ function playRound(playerSelection, computerChoice){
 
   console.log("Your choice " + playerSelection);
   console.log("Computers choice " + computerChoice);
+  
 
    
 
@@ -67,46 +93,50 @@ function playRound(playerSelection, computerChoice){
 
   /// too add a points system to determine overall winner, best of 5 
 
+ 
 
-
-  if (playerSelection == "Rock" || playerSelection == "ROCK" || playerSelection == "rock"  && computerChoice == "Paper") {
+  if (playerSelection === "ROCK" && computerChoice === "Paper") {
     console.log("You Lost!");
      } 
   
-  if (playerSelection == "Rock" || playerSelection == "ROCK" || playerSelection == "rock" && computerChoice == "Rock") {
+  if (playerSelection === "ROCK" && computerChoice === "Rock") {
       console.log("You Draw!");
      } 
-  if (playerSelection == "Rock" || playerSelection == "ROCK" || playerSelection == "rock" && computerChoice == "Scissors") {
+  if (playerSelection === "ROCK" && computerChoice === "Scissors") {
         console.log("You win!");
+       
      } 
 
 
-
-     if (playerSelection == "Paper" || playerSelection == "PAPER" || playerSelection == "paper" && computerChoice == "Scissors") {
+     if (playerSelection === "PAPER" && computerChoice === "Scissors") {
       console.log("You Lost!");
        } 
     
-    if (playerSelection == "Paper" || playerSelection == "PAPER" || playerSelection == "paper"  && computerChoice == "Paper") {
+    if (playerSelection === "PAPER" && computerChoice === "Paper") {
         console.log("You Draw!");
        } 
-    if (playerSelection == "Paper" || playerSelection == "PAPER" || playerSelection == "paper"  && computerChoice == "Rock") {
+    if (playerSelection === "PAPER" && computerChoice === "Rock") {
           console.log("You win!");
+         
        } 
 
        
 
-       if (playerSelection == "Scissors" || playerSelection == "SCISSORS" || playerSelection == "scissors" && computerChoice == "Rock") {
+       if (playerSelection === "SCISSORS" && computerChoice === "Rock") {
         console.log("You Lost!");
          } 
       
-      if (playerSelection == "Scissors" || playerSelection == "SCISSORS" || playerSelection == "scissors" && computerChoice == "Scissors") {
+      if (playerSelection === "SCISSORS" && computerChoice === "Scissors") {
           console.log("You Draw!");
          } 
-      if (playerSelection == "Scissors" || playerSelection == "SCISSORS" || playerSelection == "scissors" && computerChoice == "Paper") {
+      if (playerSelection === "SCISSORS" && computerChoice === "Paper") {
             console.log("You win!");
-         } 
+            
+         }  
+         
+    
     
 
 
 
-}
+        }
